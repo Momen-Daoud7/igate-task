@@ -3,13 +3,23 @@ import { Button } from "@material-ui/core";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import FormikControl from "../../formik/FormikControl";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/features/auth";
+import { useEffect } from "react";
 
 const Login = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const nav = useNavigate();
+  console.log(token);
+
+  // Redirect the login user
+  useEffect(() => {
+    if (token) {
+      nav("/");
+    }
+  }, [token, nav]);
 
   // Formik setup
   const initialValues = { email: "", password: "" };
@@ -22,9 +32,9 @@ const Login = () => {
 
   // Submit Handler
   const submitHanlder = async (values, onSubmitProps) => {
-    console.log(values);
     await dispatch(login(values)).unwrap();
     onSubmitProps.resetForm();
+    nav("/");
   };
 
   return (

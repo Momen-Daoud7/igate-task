@@ -25,7 +25,8 @@ export const createProject = createAsyncThunk(
 
 export const updateProject = createAsyncThunk(
   "projects/update",
-  async (id, data) => {
+  async ({ id, data }) => {
+    console.log(id);
     const res = await projects.put(`/projects/${id}`, data);
     return res.data;
   }

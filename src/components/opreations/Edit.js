@@ -7,8 +7,15 @@ import DataForm from "./DataForm";
 const Edit = () => {
   const { id } = useParams();
   const { projects } = useSelector((state) => state.projects);
+  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const nav = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      nav("/login");
+    }
+  }, [nav, token]);
 
   // Fetch the user with the id
   useEffect(() => {
@@ -18,13 +25,13 @@ const Edit = () => {
 
   const submitHandler = async (values) => {
     console.log(values);
-    await dispatch(updateProject(id, values)).unwrap();
-    nav("/projects");
+    await dispatch(updateProject({ id, data: values })).unwrap();
+    nav("/");
   };
-  console.log(projects);
+
   return (
     <>
-      {projects[0] && (
+      {projects[0]?.id == id && (
         <DataForm savedValues={projects[0]} submitHandler={submitHandler} />
       )}
     </>

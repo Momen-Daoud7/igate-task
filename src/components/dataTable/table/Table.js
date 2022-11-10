@@ -16,7 +16,8 @@ const Table = () => {
 
   // Fetch projects
   useEffect(() => {
-    const display = async () => await dispatch(getAllProjects()).unwrap();
+    const display = async () =>
+      await dispatch(getAllProjects()).unwrap();
     display();
   }, [dispatch]);
 

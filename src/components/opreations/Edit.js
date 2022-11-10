@@ -7,9 +7,9 @@ import DataForm from "./DataForm";
 const Edit = () => {
   const { id } = useParams();
   const { projects } = useSelector((state) => state.projects);
-  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const nav = useNavigate();
+  const token = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     if (!token) {

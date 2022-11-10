@@ -12,7 +12,6 @@ const Login = () => {
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const nav = useNavigate();
-  console.log(token);
 
   // Redirect the login user
   useEffect(() => {
@@ -34,7 +33,7 @@ const Login = () => {
   const submitHanlder = async (values, onSubmitProps) => {
     await dispatch(login(values)).unwrap();
     onSubmitProps.resetForm();
-    nav("/");
+    nav("/")
   };
 
   return (

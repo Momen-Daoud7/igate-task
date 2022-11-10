@@ -3,10 +3,8 @@ import projects from "../../../apis/projects";
 
 export const login = createAsyncThunk("auth/login", async (data) => {
   const res = await projects.post("/login", data);
-  console.log(res.data);
   // store token in local storage
   localStorage.setItem("user", JSON.stringify(res.data));
-
   return res.data;
 });
 
@@ -20,7 +18,7 @@ const authSlice = createSlice({
   initialState: user,
   extraReducers: {
     [login.fulfilled]: (state, { payload }) => {
-      state.user = { ...payload.user, userToken: payload.token };
+      state.user = { ...payload };
     },
   },
 });

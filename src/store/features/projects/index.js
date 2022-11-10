@@ -5,20 +5,36 @@ import projects from "../../../apis/projects";
 export const getAllProjects = createAsyncThunk(
   "projects/getAll",
   async (name = "") => {
-    const res = await projects.get(`/projects?name=${name}`);
+    const token = JSON.parse(localStorage.getItem("user"));
+    const res = await projects.get(`/projects?name=${name}`, {
+      headers: {
+        Authorization: `Bearer ${token?.token}`,
+      },
+    });
     return res.data;
   }
 );
 
 export const getProject = createAsyncThunk("projects/get", async (id) => {
-  const res = await projects.get(`/projects/${id}`);
+  const token = JSON.parse(localStorage.getItem("user"));
+  const res = await projects.get(`/projects/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token?.token}`,
+    },
+  });
   return res.data;
 });
 
 export const createProject = createAsyncThunk(
   "projects/create",
   async (data) => {
-    const res = await projects.post(`/projects`, data);
+    const token = JSON.parse(localStorage.getItem("user"));
+
+    const res = await projects.post(`/projects`, data, {
+      headers: {
+        Authorization: `Bearer ${token?.token}`,
+      },
+    });
     return res.data;
   }
 );
@@ -26,14 +42,24 @@ export const createProject = createAsyncThunk(
 export const updateProject = createAsyncThunk(
   "projects/update",
   async ({ id, data }) => {
-    console.log(id);
-    const res = await projects.put(`/projects/${id}`, data);
+    const token = JSON.parse(localStorage.getItem("user"));
+
+    const res = await projects.put(`/projects/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token?.token}`,
+      },
+    });
     return res.data;
   }
 );
 
 export const deleteProject = createAsyncThunk("projects/delete", async (id) => {
-  const res = await projects.delete(`/projects/${id}`);
+  const token = JSON.parse(localStorage.getItem("user"));
+  const res = await projects.delete(`/projects/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token?.token}`,
+    },
+  });
   return res;
 });
 

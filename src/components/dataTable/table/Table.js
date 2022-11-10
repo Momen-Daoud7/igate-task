@@ -12,6 +12,7 @@ import "./Table.css";
 
 const Table = () => {
   const { projects, searchName } = useSelector((state) => state.projects);
+  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   // Fetch projects

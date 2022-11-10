@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createProject } from "../../store/features/projects";
 import DataForm from "./DataForm";
@@ -7,8 +7,7 @@ import DataForm from "./DataForm";
 const Create = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
-
-  const { token } = useSelector((state) => state.auth);
+  const token = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     if (!token) {

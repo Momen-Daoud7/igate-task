@@ -1,0 +1,41 @@
+.dataForm {
+  width: 500px;
+  margin: 50px auto;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+  .dataForm {
+    width: 400px;
+  }
+}
+
+.dataForm .form-control {
+  margin-bottom: 15px;
+}
+
+.dataForm input,
+.dataForm textarea {
+  padding: 10px 20px;
+  border: 1px solid var(--gray-color);
+  font-size: 17px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #f1f3f5;
+}
+
+.dataForm textarea {
+  height: 200px;
+  resize: none;
+}
+
+.form-button {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  text-transform: capitalize;
+  text-align: center;
+  width: 100%;
+}

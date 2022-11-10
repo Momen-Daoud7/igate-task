@@ -1,0 +1,76 @@
+.login {
+  margin: 50px auto;
+  text-align: center;
+  padding: 0px 20px;
+  width: 650px;
+  border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+  .login {
+    width: 400px;
+  }
+}
+
+.login h3 {
+  background-color: var(--primary-color);
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 30px;
+  font-size: 22px;
+}
+
+.login form {
+  margin: 20px 0;
+}
+
+.login .form-control {
+  width: 90%;
+  margin: auto;
+}
+
+.login input {
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  outline: none;
+  border: 2px solid #f1f3f5;
+  font-size: 18px;
+  width: 100%;
+}
+
+.login__body {
+  border: 1px solid #cccccc;
+  padding: 25px 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.login .form-button {
+  width: 90%;
+  background-color: var(--primary-color) !important;
+  border-radius: 7px;
+  color: white !important;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.login__needAccount {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.login__needAccount a {
+  color: #405773;
+  font-weight: 500;
+}
+
+.login__frogetPassword {
+  font-size: 20px;
+}

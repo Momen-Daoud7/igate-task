@@ -1,0 +1,162 @@
+.table {
+  padding: 40px;
+  background-color: #f5f6ff;
+  height: 100vh;
+  width: 95%;
+  margin: auto;
+  border-radius: 10px;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.table__content {
+  background-color: white;
+  height: 100vh;
+  border-radius: inherit;
+}
+
+.table__header {
+  border-bottom: 2px solid #f4f5fb;
+  padding: 20px;
+}
+
+.table__header h3 {
+  color: var(--table-text-color);
+}
+
+.table__info {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .table__info {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.table__info h2 {
+  color: var(--primary-color);
+}
+
+.table__infoActions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@media (max-width: 800px) {
+  .table__infoActions {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.table__infoActions__search {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.table__infoActions__search input {
+  padding: 10px 70px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 1px solid var(--primary-color);
+  outline: none;
+}
+
+.table__infoActions a {
+  width: fit-content;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .table__infoActions a {
+    width: 100%;
+  }
+}
+
+.table__infoActions__search .MuiSvgIcon-root {
+  font-size: 20px;
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+.table__infoActions__search div {
+  position: absolute;
+  left: 20px;
+  top: 8px;
+}
+
+.table__infoActions__search div::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  background-color: var(--primary-color);
+  top: -2px;
+  height: 100%;
+  width: 1px;
+  border: none;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 800px) {
+  table {
+    display: block;
+    width: 330px;
+    overflow-x: scroll;
+    margin: auto;
+  }
+}
+
+thead tr {
+  width: 100%;
+}
+
+thead th {
+  color: var(--table-text-color);
+}
+
+tbody td {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+thead tr th,
+tbody tr td:not(:last-of-type) {
+  padding: 20px;
+}
+
+tbody tr {
+  margin: 20px 0;
+  padding-bottom: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px !important;
+  text-transform: capitalize !important;
+  color: white !important;
+}
+
+.edit-btn {
+  background-color: dodgerblue !important;
+}
+
+.delete-btn {
+  background-color: red !important;
+}
